@@ -1,5 +1,5 @@
 init start
-	-- local SCRIPT_VERSION = '1.0.1'
+	-- local SCRIPT_VERSION = '1.0.2'
 
 	local warnItems = {'cheese', 'life ring'} -- You can add more items here
 	local maxLines = 10 -- Max lines to display at once
@@ -12,7 +12,7 @@ init end
 setfontstyle('Tahoma', 7, 75, 0xFFFFFF, 1, 0x000000)
 
 foreach newmessage m do
-	local creature, loot = m.content:match(REGEX_LOOT)
+	local _, loot = m.content:match(REGEX_LOOT)
 	if loot then
 		local message, color = m.content, 0xFFFFFF
 
