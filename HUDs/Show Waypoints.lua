@@ -1,5 +1,5 @@
 init start
-	-- local SCRIPT_VERSION = '1.1.0'
+	-- local SCRIPT_VERSION = '1.2.0'
 
 	local waypointColors = {
 		walk    = 0xAAF200,
@@ -13,6 +13,10 @@ init start
 		action  = 0x00FFFF,
 		lure    = 0xCCCCCC
 	}
+
+	local function deleteWaypointCall(menu)
+		removewaypoint(getwptid(menu.waypoint))
+	end
 
 	local function moveWaypointName()
 		if resizedWpt == nil then
@@ -44,6 +48,7 @@ init start
 
 	registermessagehandler('contextMenu_waypoint', moveWaypointName, moveWaypointCall)
 	registermessagehandler('contextMenu_waypoint', resizeWaypointName, resizeWaypointCall)
+	registermessagehandler('contextMenu_waypoint', 'Delete Waypoint', deleteWaypointCall)
 	registermessagehandler('contextMenu_waypoint', MENU_SEPARATOR, nil)
 
 	local xOffset, yOffset, worldWidth, worldHeight, x, y, z, topLeftTilePos,
