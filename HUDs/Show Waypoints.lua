@@ -1,5 +1,5 @@
 init start
-	-- local SCRIPT_VERSION = '1.2.0'
+	-- local SCRIPT_VERSION = '1.2.1'
 
 	local waypointColors = {
 		walk    = 0xAAF200,
@@ -15,7 +15,7 @@ init start
 	}
 
 	local function deleteWaypointCall(menu)
-		removewaypoint(getwptid(menu.waypoint))
+		removewaypoint(menu.waypointID)
 	end
 
 	local function moveWaypointName()

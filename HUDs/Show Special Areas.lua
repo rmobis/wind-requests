@@ -1,8 +1,8 @@
 init start
-	-- local SCRIPT_VERSION = '1.2.0'
+	-- local SCRIPT_VERSION = '1.2.1'
 
 	local function deleteSpecialAreaCall(menu)
-		removespecialarea(get(menu.specialArea, 'Name'))
+		removespecialarea(menu.specialAreaName)
 	end
 
 	local function moveSpecialAreaName()
