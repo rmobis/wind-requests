@@ -1,5 +1,9 @@
 init start
-	-- local SCRIPT_VERSION = '1.1.0'
+	-- local SCRIPT_VERSION = '1.2.0'
+
+	local function deleteSpecialAreaCall(menu)
+		removespecialarea(get(menu.specialArea, 'Name'))
+	end
 
 	local function moveSpecialAreaName()
 		if resizedSP == nil then
@@ -31,6 +35,7 @@ init start
 
 	registermessagehandler('contextMenu_specialArea', moveSpecialAreaName, moveSpecialAreaCall)
 	registermessagehandler('contextMenu_specialArea', resizeSpecialAreaName, resizeSpecialAreaCall)
+	registermessagehandler('contextMenu_specialArea', 'Delete Special Area', deleteSpecialAreaCall)
 	registermessagehandler('contextMenu_specialArea', MENU_SEPARATOR, nil)
 
 	local worldWidth, worldHeight, x, y, z, width, height, avoidance, name, policy, areaType
