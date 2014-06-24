@@ -1,11 +1,13 @@
 init start
-	-- local SCRIPT_VERSION = '2.1.3'
+	-- local SCRIPT_VERSION = '2.2.0'
 
 	local showProfile = true
 	local showRelation = true
 	local showWaypoints = true
 	local mainWaypoints = {'Node', 'Stand', 'Action', 'Lure'}
 	local secondaryWaypoints = {'Walk', 'Shovel', 'Rope', 'Machete', 'Ladder', 'Use'}
+	local showSpecialAreas = true
+	local specialAreas = {'none', 'cavebot', 'targeting', 'cavebot & targeting'}
 
 	-- DO NOT EDIT BELOW THIS LINE --
 
@@ -112,6 +114,18 @@ init start
 
 				registermessagehandler('contextMenu_world', MENU_SEPARATOR, nil)
 			end
+		end
+
+		if showSpecialAreas then
+			for _, v in ipairs(specialAreas) do
+				registermessagehandler('contextMenu_world', 'Add Special Area (' .. v:capitalizeall() .. ')', (function(type)
+					return function(m)
+						addspecialarea(type, m.posx, m.posy, m.posz)
+					end
+				end)(v))
+			end
+
+			registermessagehandler('contextMenu_world', MENU_SEPARATOR, nil)
 		end
 	end
 
