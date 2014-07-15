@@ -1,16 +1,19 @@
 init start
-	-- local SCRIPT_VERSION = '1.0.1'
+	-- local SCRIPT_VERSION = '1.1.0'
 
-	local minAmount = 30 -- Minimum amount to drop
+	-- Minimum amount of flasks to drop
+	local minAmount = 30
+
+	-- Minimum cap to start dropping flasks
+	local minCap = 50
 
 	-- DO NOT EDIT BELOW THIS LINE --
 	local randMinAmount = minAmount
 init end
 
 auto(1000, 3000)
-dontlist()
 
-if flasks() >= randMinAmount then
+if $cap <= minCap and flasks() >= randMinAmount then
 	if maround() ~= 0 then
 		wait(500, 1000)
 	else
@@ -26,5 +29,5 @@ if flasks() >= randMinAmount then
 		pausewalking(0)
 	end
 
-	randMinAmount = math.random(minAmount - 5, minAmount + 5)
+	randMinAmount = minAmount + math.random(-5, 5)
 end
