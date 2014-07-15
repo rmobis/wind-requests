@@ -1,5 +1,5 @@
 init start
-	-- local SCRIPT_VERSION = '1.0.2'
+	-- local SCRIPT_VERSION = '1.1.0'
 
 	local warnItems = {'cheese', 'life ring'} -- You can add more items here
 	local maxLines = 10 -- Max lines to display at once
@@ -7,18 +7,20 @@ init start
 	-- DO NOT EDIT BELOW THIS LINE --
 
 	local lootMsgs = {}
+	local regColor = 0x00FF00
+	local warnColor = 0xFF0000
 init end
 
-setfontstyle('Tahoma', 7, 75, 0xFFFFFF, 1, 0x000000)
+setfontstyle('Tahoma', 7, 75, regColor, 1, 0x000000)
 
 foreach newmessage m do
 	local _, loot = m.content:match(REGEX_LOOT)
 	if loot then
-		local message, color = m.content, 0xFFFFFF
+		local message, color = m.content, regColor
 
 		for k, v in ipairs(warnItems) do
 			if loot:find(v, 1, false) then
-				color = 0xFF0000
+				color = warnColor
 				break
 			end
 		end
