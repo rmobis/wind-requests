@@ -1,5 +1,5 @@
 init start
-	-- local SCRIPT_VERSION = '1.0.0'
+	-- local SCRIPT_VERSION = '1.0.1'
 
 	-- What settings should be paused/unpaused
 	local settingsToggable = {
@@ -26,3 +26,6 @@ for k, v in pairs(settingsToggable) do
 		set(k .. '/Enabled', newState)
 	end
 end
+
+-- Prevents multiple subsequent activations
+wait(500)
