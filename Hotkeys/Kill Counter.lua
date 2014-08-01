@@ -1,5 +1,5 @@
 init start
-	-- local SCRIPT_VERSION = '1.1.0'
+	-- local SCRIPT_VERSION = '1.1.1'
 
 	-- If set to true, will save kill count to $chardb so that it is persisted
 	-- throughout different sessions.
@@ -11,7 +11,8 @@ init start
 	-- killCount.creatures
 	if killCount == nil then
 		killCount = {
-			creatures = {}
+			creatures = {},
+			lastRan = $timems
 		}
 
 		killCount.set = function(count, ...)
@@ -80,3 +81,6 @@ foreach newmessage m do
 		end
 	end
 end
+
+-- You're welcome, Leonardo
+killCount.lastRan = $timems
