@@ -1,5 +1,5 @@
 init start
-	-- local SCRIPT_VERSION = '1.1.0'
+	-- local SCRIPT_VERSION = '1.1.1'
 
 	local commands = {
 		sd = {
@@ -15,7 +15,7 @@ init start
 		local comm, args = m.message:match('(.-):(.+)')
 		comm = commands[comm]
 		args = args:explode(';')
-		table.map(args, string.trim)
+		table.map(args, function(arg) return string.trim(arg) end)
 
 		if comm then
 			if not comm.leaderOnly or m.isleader then
