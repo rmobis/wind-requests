@@ -1,9 +1,9 @@
 init start
-    -- local SCRIPT_VERSION = '1.1.0'
+    -- local SCRIPT_VERSION = '1.1.1'
 
     local invisCreatures = {'Stalker'}
     local stuckTime = 0 -- Set to 0 to always attack
-    local minDamageTaken = 0 -- Set to 0 to always attack
+    local minDmgTaken  = 0 -- Set to 0 to always attack
     local spellToUse = 'exori'
 
     -- DO NOT EDIT BELOW THIS LINE --
