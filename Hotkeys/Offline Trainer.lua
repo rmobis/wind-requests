@@ -1,5 +1,5 @@
 init start
-    -- local SCRIPT_VERSION = '1.1.0'
+    -- local SCRIPT_VERSION = '1.1.1'
 
     local charList = {
         {'account1', 'password1', 'char1', 'skill1'},
@@ -36,12 +36,12 @@ for _, v in ipairs(charList) do
             if skill == 'auto' then
                 if $voc == VOC_DRUID or $voc == VOC_SORCERER then
                     skill = 'magic'
-                else if $voc == VOC_PALADIN then
+                elseif $voc == VOC_PALADIN then
                     skill = 'distance'
                 else
                     if $axe > $sword and $axe > $club then
                         skill = 'axe'
-                    else if $sword > $axe and $sword > $club then
+                    elseif $sword > $axe and $sword > $club then
                         skill = 'sword'
                     else
                         skill = 'club'
