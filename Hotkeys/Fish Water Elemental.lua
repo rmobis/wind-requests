@@ -28,7 +28,6 @@ if $lootsaround == 0 and $targetingtarget.hppc == 0 and (clientitemhotkey(3483, 
 	local body = findwaterfishspots(true)
 
 	while body ~= nil and tileshootable(body.x, body.y, $posz) do
-
 		pausewalking(6^9) -- Yeah babe!
 
 		if body ~= nil then
