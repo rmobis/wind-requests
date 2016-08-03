@@ -1,5 +1,5 @@
 init start
-    -- local SCRIPT_VERSION = '1.1.2'
+    -- local SCRIPT_VERSION = '1.1.3'
 
     local invisCreatures = {'Stalker'}
     local stuckTime = 0 -- Set to 0 to always attack
@@ -22,7 +22,7 @@ if $standtime >= stuckTime then
             local dmg, _, name = m.content:match(REGEX_DMG_TAKEN)
             dmg = tonumber(dmg)
             
-            if dmg >= minDmgTaken and name and table.find(invisCreatures, name:lower()) and maround(7, name:lower()) == 0 then
+            if dmg and dmg >= minDmgTaken and name and table.find(invisCreatures, name:lower()) and maround(7, name:lower()) == 0 then
                 if spellType == 'spell' and cancastspell(spellToUseInfo) then
                     cast(spellToUseInfo.words)
                     waitping()
